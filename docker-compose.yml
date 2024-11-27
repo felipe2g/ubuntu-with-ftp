@@ -6,11 +6,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "21:21"          # Porta FTP padrão
+      - "21:21"                # Porta padrão do FTP
       - "21000-21010:21000-21010"  # Faixa de portas para modo passivo
     volumes:
       - ./ftpdata:/home/ftpuser/ftp  # Persistência de dados local
     environment:
-      - FTP_USER=ftpuser            # Nome do usuário FTP
-      - FTP_PASS=ftp_password       # Senha do usuário FTP
+      FTP_USER: ftpuser         # Nome do usuário FTP
+      FTP_PASS: ftp_password    # Senha do usuário FTP
     container_name: ftp-server
